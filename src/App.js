@@ -1,24 +1,35 @@
-import logo from './logo.svg';
+import React from 'react';
+import {Container} from 'react-bootstrap';
 import './App.css';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+
+import AppNav from './components/AppNav';
+import Home from './pages/Home';
+import Page404 from './pages/Page404';
 
 function App() {
+
+  const objects = [
+    {
+      id: '1234',
+      name: 'FF7',
+      description: 'ff7',
+      price: 1000.00
+    },
+  ]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <AppNav />
+        <Container fluid>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<Page404 />} />
+          </Routes>
+        </Container>
+      </BrowserRouter>
+    </>
   );
 }
 
