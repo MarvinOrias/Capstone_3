@@ -55,6 +55,12 @@
   -webkit-text-fill-color: transparent;
 }
 
+/*LoginForm*/
+
+.login_btn{
+  text-align: center;
+}
+
 /*Items*/
 
 #Card{

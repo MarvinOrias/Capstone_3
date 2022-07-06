@@ -6,6 +6,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import AppNav from './components/AppNav';
 import Home from './pages/Home';
 import Page404 from './pages/Page404';
+import LoginPage from './pages/LoginPage';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="*" element={<Page404 />} />
+            <Route path="/login" element={<LoginPage />} />
           </Routes>
         </Container>
       </BrowserRouter>
