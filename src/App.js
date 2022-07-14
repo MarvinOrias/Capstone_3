@@ -1,14 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Container} from 'react-bootstrap';
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 
 import AppNav from './components/AppNav';
-import Home from './pages/Home';
+import Home from './components/Home';
+// import UserForm from './components/UserForm';
 import Page404 from './pages/Page404';
 import LoginPage from './pages/LoginPage';
+import ProductsAdmin from './pages/ProductsAdmin';
+import ProductsPage from './pages/ProductsPage';
+import ProtectedRoute from './ProtectedRoute';
+import RegisterPage from './pages/RegisterPage';
 
 function App() {
+
+  const userlvl = localStorage.getItem('admin level');
 
   const objects = [
     {
@@ -26,9 +33,22 @@ function App() {
         <Container fluid>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="*" element={<Page404 />} />
+            <Route path="/home" element={<Home />} />
+            {/*<Route path="/products/user" element={<UserForm name='123' description='123' price={123} />} />*/}
+            <Route path="/products_admin" element={<ProductsAdmin />}/>
+            <Route path="/products_user" element={<ProductsPage />}/>
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+ {/*           <Route path="/products_user" element={<ProductsPage />} />*/}
+            {/*{userlvl === 'true'
+            ?
+            <Route path="/products_admin" element={<ProductsAdmin />}/>
+            :
+            <Route path="/products_user" element={<ProductsPage />}/>
+            }*/}
           </Routes>
+          {/*<ProtectedRoute path="/products_admin" component={ProductsAdmin} auth={false} />*/}
+
         </Container>
       </BrowserRouter>
     </>
