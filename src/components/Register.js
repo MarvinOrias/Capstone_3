@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Row, Col, Form, Button} from 'react-bootstrap';
 
 export default function Register(props){
+	const [show, setShow] = useState(false);
+	const [showVerify, setShowVerify] = useState(false);
+
+	const showPass = () => {
+		setShow(!show);
+	}
+
+	function showVerified(){
+		setShowVerify(!showVerify);
+	}
+
 	return(
 			<>
 				<div className="register-form">
@@ -18,14 +29,22 @@ export default function Register(props){
 							<Col sm={12} md={6}>
 								<Form.Group className="mb-3" controlId="formBasicPassword">
 								    <Form.Label>Password</Form.Label>
-								    <Form.Control type="password" placeholder="Password" onChange={props.password} />
+								    <Form.Control type={show ? "text" : "password"} placeholder="Password" onChange={props.password} />
+								</Form.Group>
+								
+								<Form.Group className="mb-3" controlId="formBasicCheckbox">
+								    <Form.Check type="checkbox" label="Show password" onClick={showPass} />
 								</Form.Group>
 							</Col>
 
 							<Col sm={12} md={6}>
 								<Form.Group className="mb-3" controlId="formBasicVerifyPassword">
 								    <Form.Label>Verify Password</Form.Label>
-								    <Form.Control type="password" placeholder="Password" onChange={props.verifyPass} />
+								    <Form.Control type={showVerify ? "text" : "password"} placeholder="Password" onChange={props.verifyPass} />
+								</Form.Group>
+								
+								<Form.Group className="mb-3" controlId="formBasicCheckbox">
+								    <Form.Check type="checkbox" label="Show password" onClick={showVerified} />
 								</Form.Group>
 							</Col>
 				

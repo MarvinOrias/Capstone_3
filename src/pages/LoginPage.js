@@ -55,7 +55,7 @@ export default function LoginPage(){
 					}).then((response) => {
 						return response.json()
 					}).then((login) => {
-						let userlvl = localStorage.setItem('admin level', login.details.isAdmin);
+						let userlvl = localStorage.setItem('admin', login.details.isAdmin);
 						if(login.details.isAdmin === true){
 							Swal.fire({
 								title: "Log in successful",
@@ -84,11 +84,11 @@ export default function LoginPage(){
 
 	return(
 			<>
-				{localStorage.getItem('admin level') === 'true'
+				{localStorage.getItem('admin') === 'true'
 				?
 				<Navigate to="/products_admin"/>
 				:
-				localStorage.getItem('admin level') === 'false'
+				localStorage.getItem('admin') === 'false'
 				?
 				<Navigate to="/products_user"/>
 				:

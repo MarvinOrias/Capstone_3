@@ -1,7 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Row, Col, Form, Button} from 'react-bootstrap';
 
 export default function LoginForm(props){
+	const [show, setShow] = useState(false);
+
+	function showPass(){
+		setShow(!show);
+	}
+
 	return(
 			<>
 				<div className="login-form">
@@ -18,8 +24,10 @@ export default function LoginForm(props){
 					  	<Col sm={12} md={6}>
 					  		<Form.Group className="mb-3" controlId="formBasicPassword">
 					  		  <Form.Label>Password</Form.Label>
-					  		  <Form.Control type="password" placeholder="Password" onChange={props.password}/>
-					  		  <i class="far fa-eye" id="togglePassword"></i>
+					  		  <Form.Control type={show ? "text" : "password"} placeholder="Password" onChange={props.password}/>
+					  		</Form.Group>
+					  		<Form.Group className="mb-3" controlId="formBasicCheckbox">
+					  		    <Form.Check type="checkbox" label="Show password" onClick={showPass} />
 					  		</Form.Group>
 					  	</Col>
 					  	<Col>
