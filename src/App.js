@@ -44,6 +44,24 @@ function App() {
             {/*<Route path="/cart" element={<CartPage />} />*/}
             <Route path="/cart" element={<CartPage />} />
             <Route path="/orders" element={<OrderPage />} />
+            {/*{ 
+              userlvl === 'true' || userlvl === null
+              ?
+              <>
+                <Route path="/cart" element={<Page404 />} />
+              </>
+              :
+            }
+            {
+              userlvl === null
+              ?
+              <>
+                <Route path="/orders" element={<Page404 />} />
+              </>
+              :
+              <>
+              </>
+            }*/}
             <Route path="*" element={<Page404 />}/>
  {/*           <Route path="/products_user" element={<ProductsPage />} />*/}
             {/*{userlvl === 'true'

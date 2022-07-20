@@ -8,8 +8,9 @@ export default function OrderForm(props){
 			<>
 				<Card id="Card">
 					  		<img variant="top" src={ff7} className="image" alt={'1234'}/>
-						  	<span hidden={props.idHide}>Order No: {props.orderId} </span>
 						  	<Card.Body>
+
+						  	<Card.Text hidden={props.orderIdHide}>Order No: {props.orderId}</Card.Text>
 
 						    <Card.Text>Product details: {props.details}</Card.Text>
 						    <Card.Text>

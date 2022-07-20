@@ -16,11 +16,11 @@ export default function OrderPage(){
 
 	const shouldLog = useRef(true);
 
-	
+
 
 	return(
 			<>
-				<OrderForm />
+				<OrderForm orderIdHide={false} />
 			</>
 		)
 } 

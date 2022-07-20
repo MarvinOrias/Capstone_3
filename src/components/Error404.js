@@ -6,7 +6,7 @@ import image404 from '../images/404.png';
 export default function Error404(){
 	return(
 			<>
-				<div className="error_div">
+				<div className="error_div mt-2">
 					<a href="/" className="error_link">Go home</a>
 				</div>
 				<Carousel className="my-2">

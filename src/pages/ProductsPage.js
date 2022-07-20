@@ -93,7 +93,7 @@ export default function ProductsPage(){
 	const loadedData = items.map((products) => {
 		if(token !== null && userlvl === 'true'){
 			return(
-				<ProductsForm key={products._id} name={products.name} description={products.description} isActive={`${products.isActive}`} price={products.price} quantityHide={true} addBtnHide={true} />
+				<ProductsForm key={products._id} id={products._id} name={products.name} description={products.description} isActive={`${products.isActive}`} price={products.price} quantityHide={true} addBtnHide={true} />
 			)
 		}
 		else{
