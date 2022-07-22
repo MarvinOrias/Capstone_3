@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {Row, Col} from 'react-bootstrap';
+import {useNavigate} from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 import ProductsForm from '../components/ProductsForm';
@@ -10,6 +11,7 @@ export default function ProductsPage(){
 	const token = localStorage.getItem('token');
 	const [quantity, setQuantity] = useState(0);
 	const shouldLog = useRef(true);
+	const navigate = useNavigate();
 	
 	const fetchData = () => {
 		fetch('http://localhost:4000/products/all')
@@ -49,12 +51,24 @@ export default function ProductsPage(){
 		}).then((response) => {
 				return response.json();
 			}).then((addItem) => {
-				Swal.fire({
-					title: "Successfully added",
-					icon: "success",
-					text: `${addItem.message}`
-				});
-				fetchData();
+				if(addItem.message === 'Failed authentication'){
+					localStorage.clear();
+					Swal.fire({
+					title: "Session expired",
+					icon: "error",
+					text: "Please log in"
+						});
+					navigate('/');
+				}
+				else{
+					Swal.fire({
+						title: "Successfully added",
+						icon: "success",
+						text: `${addItem.message}`
+					});
+					quantityValue(0);
+					fetchData();
+				}
 			}).catch((error) => {
 				return error.message;
 			})
@@ -85,7 +99,6 @@ export default function ProductsPage(){
 			}
 			else{
 				addItem(Id, quantity);
-				setQuantity(0);
 			}
 		}
 	}

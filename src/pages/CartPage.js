@@ -12,11 +12,8 @@ export default function CartPage(){
 	const token = localStorage.getItem('token');
 
 	const [cartInfo, setCartInfo] = useState([]);
-	const [loadedCart, setLoadedCart] = useState([])
 	const [emptyCart, setEmptyCart] = useState(false);
-	const [mapCart, setMapCart] = useState(false);
 	const [cartTotal, setCartTotal] = useState(0);
-	const [failedAuth, setFailedAuth] = useState('');
 
 	const shouldLog = useRef(true);
 	const navigate = useNavigate();
@@ -36,18 +33,8 @@ export default function CartPage(){
 			}).then((response) => {
 				return response.json();
 			}).then((cartDetails) => {
-				if(cartDetails.message !== `User cart is empty`){
-					setEmptyCart(false)
-					setCartInfo(cartDetails.details);
-					setCartTotal(cartDetails.totalAmount)
-					setFailedAuth('Access granted');
-				}
-				else if(cartDetails.message === 'Failed authentication'){
-					setFailedAuth(cartDetails.message);
-				}
-				else{
+				if(cartDetails.message === `User cart is empty`){
 					if(isShow){
-						setFailedAuth('Access granted');
 						setEmptyCart(true);
 						Swal.fire({
 								title: "Empty",
@@ -56,13 +43,26 @@ export default function CartPage(){
 							})
 					}
 					else{
-						setFailedAuth('Access granted');
 						setEmptyCart(true);
 					}
 				}
+				else if(cartDetails.message === 'Failed authentication'){
+					localStorage.clear();
+					Swal.fire({
+					title: "Session expired",
+					icon: "error",
+					text: "Please log in"
+						});
+					navigate('/');
+				}
+				else{
+					setEmptyCart(false)
+					setCartInfo(cartDetails.details);
+					setCartTotal(cartDetails.totalAmount)
+				}
 			}).catch((error) => {
 				return error.message;
-			});	
+			});
 	}
 
 	useEffect(() => {
@@ -70,7 +70,7 @@ export default function CartPage(){
 			shouldLog.current = false;
 			cartDetails(true);
 		}
-	}, [token])
+	}, [])
 
 	function removeItem(cartid){
 		fetch('http://localhost:4000/users/remove-cart-item' ,{
@@ -116,7 +116,7 @@ export default function CartPage(){
 				return response.json();
 			}).then((removeAllCart) => {
 				Swal.fire({
-					title: "Order created",
+					title: "Created",
 					icon: "success",
 					text: `${createOrder.message}`
 				})
@@ -130,21 +130,6 @@ export default function CartPage(){
 		})
 	}
 
-	/*if(loadedCart.length === 0){
-		return(
-				<EmptyForm form='cart' />
-			)
-	}
-	else if(cartInfo.length !== 0){
-		const newCart = cartInfo.map((items, index) => {
-			return(
-					<CartForm key={items._id} idHide={true} cartId={items._id} orderNo={index+1} name={items.productName} quantity={items.quantity} total={items.total} remove={() => {removeItem(items._id)}}/>
-				)
-		});
-	}*/
-
-	console.log(failedAuth)
-
 	return(
 			<>
 				{
@@ -157,26 +142,8 @@ export default function CartPage(){
 					userlvl == 'false' && emptyCart
 					?
 					<>
-						<EmptyForm form='cart'/>
+						<EmptyForm form='carts'/>
 					</>
-					:
-					userlvl === 'false' && failedAuth === 'Failed authentication'
-					?
-						<>
-							{
-								Swal.fire({
-								title: "Error",
-								icon: "error",
-								text: "Please log again"
-									})
-							}
-							{
-								localStorage.clear()
-							}
-							{
-								navigate('/')
-							}
-						</>
 					:
 					<>
 						<Row>

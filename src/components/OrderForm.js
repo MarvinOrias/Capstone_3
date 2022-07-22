@@ -12,20 +12,24 @@ export default function OrderForm(props){
 
 						  	<Card.Text hidden={props.orderIdHide}>Order No: {props.orderId}</Card.Text>
 
-						    <Card.Text>Product details: {props.details}</Card.Text>
-						    <Card.Text>
-								      Amount: {props.amount}
+						  	<Card.Text hidden={props.userIdHide}>User Id: {props.userId}</Card.Text>
+
+						    <Card.Text hidden={props.detailsHide}>Product details: [{props.details}]</Card.Text>
+						    <Card.Text hidden={props.priceHide}>
+								      Amount: {props.price}
 						    </Card.Text>
 
-						     <Card.Text>
+						     <Card.Text hidden={props.dateHide}>
 								      Ordered on: {props.date}
 						    </Card.Text>
 
-						    <Card.Text>
+						    <Card.Text hidden={props.statusHide}>
 								      Status: {props.status}
 						    </Card.Text>
 						    
-						    <Button variant="outline-danger" onClick={props.cancel} className="mb-2">Cancel order</Button>
+						    <Button variant="outline-danger" hidden={props.cancelBtnHide} onClick={props.cancelBtn} className="me-3 mb-3">Cancel</Button>
+						    <Button variant="outline-warning" hidden={props.pendingBtnHide} onClick={props.pendingBtn} className="me-3 mb-3">Pending</Button>
+						    <Button variant="outline-success" hidden={props.successBtnHide} onClick={props.successBtn} className="me-3 mb-2\1">Success</Button>
 
 						    {/*<Card.Text hidden={props.isEmpty}>
 								      Cart is empty
