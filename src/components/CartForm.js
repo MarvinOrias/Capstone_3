@@ -1,5 +1,5 @@
 import React from 'react';
-import {Form, Card, Button, Col} from 'react-bootstrap';
+import {Card, Button} from 'react-bootstrap';
 
 import ff7 from '../images/ff7.gif';
 

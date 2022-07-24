@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Container} from 'react-bootstrap';
 import './App.css';
-import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import AppNav from './components/AppNav';
 import Home from './components/Home';
@@ -10,22 +10,9 @@ import LoginPage from './pages/LoginPage';
 import ProductsPage from './pages/ProductsPage';
 import RegisterPage from './pages/RegisterPage';
 import CartPage from './pages/CartPage';
-import OrderUser from './pages/OrderUser';
-import OrderAdmin from './pages/OrderAdmin';
 import OrderPage from './pages/OrderPage';
 
 function App() {
-
-  const userlvl = localStorage.getItem('admin');
-
-  const objects = [
-    {
-      id: '1234',
-      name: 'FF7',
-      description: 'ff7',
-      price: 1000.00
-    },
-  ]
 
   return (
     <>

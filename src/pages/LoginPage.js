@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 import LoginForm from '../components/LoginForm';
 
 export default function LoginPage(){
-	const [pathName, setPathName] = useState('');
 	const [email, setEmail] = useState('');
 	const [pass, setPass] = useState('');
 	const navigate = useNavigate();
@@ -28,7 +27,7 @@ export default function LoginPage(){
 			})
 		}
 		else{
-			fetch('http://localhost:4000/users/login', {
+			fetch('https://code-eater-e-commerce.herokuapp.com/', {
 				method: "POST",
 				headers: {"Content-Type":"application/json"},
 				body: JSON.stringify({
@@ -47,7 +46,7 @@ export default function LoginPage(){
 				}
 				else{
 					localStorage.setItem('token', login.Token_Created);
-					fetch('http://localhost:4000/users/details', {
+					fetch('https://code-eater-e-commerce.herokuapp.com/', {
 						method: "GET",
 						headers: {
 							Authorization: `Bearer ${login.Token_Created}`
@@ -55,7 +54,7 @@ export default function LoginPage(){
 					}).then((response) => {
 						return response.json()
 					}).then((login) => {
-						let userlvl = localStorage.setItem('admin', login.details.isAdmin);
+						localStorage.setItem('admin', login.details.isAdmin);
 						if(login.details.isAdmin === true){
 							Swal.fire({
 								title: "Log in successful",
@@ -84,13 +83,9 @@ export default function LoginPage(){
 
 	return(
 			<>
-				{localStorage.getItem('admin') === 'true'
+				{localStorage.getItem('admin') === 'true' || localStorage.getItem('admin') === 'false'
 				?
-				<Navigate to="/products_admin"/>
-				:
-				localStorage.getItem('admin') === 'false'
-				?
-				<Navigate to="/products_user"/>
+				<Navigate to="/products"/>
 				:
 				<>
 					<LoginForm email={getEmail} password={getPass} btn={loginBtn}/>

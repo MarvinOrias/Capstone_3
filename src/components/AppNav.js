@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Navbar, Nav} from 'react-bootstrap';
-import {Link, useNavigate, Navigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 import fox from '../images/fox.png';
@@ -13,7 +13,7 @@ function AppNav(){
 	const [user, setUser] = useState('');
 
 	function welcomeUser(){
-		fetch('http://localhost:4000/users/details', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/', {
 			method: "GET",
 			headers: {
 				Authorization: `Bearer ${token}`

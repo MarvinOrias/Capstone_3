@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {Row, Button} from 'react-bootstrap';
+import {Row} from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import {useNavigate} from 'react-router-dom';
 
@@ -19,7 +19,7 @@ export default function CartPage(){
 
 
 	function orderDetails(isShow){
-		fetch('http://localhost:4000/orders/all', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/', {
 				method: "GET",
 				headers: {
 					Authorization: `Bearer ${token}`
@@ -66,7 +66,7 @@ export default function CartPage(){
 	}, [token])
 
 	function updateOrder(orderid, status){
-		fetch('http://localhost:4000/orders/update-order-admin', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/', {
 			method: "PUT",
 			headers: {
 				Authorization: `Bearer ${token}`,
@@ -101,7 +101,7 @@ export default function CartPage(){
 						<Page404 />
 					</>
 					:
-					userlvl == 'true' && emptyOrder
+					userlvl === 'true' && emptyOrder
 					?
 					<>
 						<EmptyForm form='orders'/>
@@ -111,7 +111,7 @@ export default function CartPage(){
 						<Row>
 							{orderInfo.map((items, index) => {
 								return(
-										<OrderForm key={items._id} orderId={`${items._id}, User ID: ${items.userId}`} userIdHide={false} userId={items.userId} price={items.total} details={items.orderDetails.map((details) => {return <> <div>Product Name: {details.productName}</div> <div>Quantity: {details.quantity}</div> <div>Price: {details.total}</div> </> })} userIdHide={true} price={items.amountToPay} date={items.createdOn.replace('T', ' ').replace('Z', ' ')} status={items.status} cancelBtnHide={true} pendingBtnHide={items.status === 'Pending' ? true : false} pendingBtn={()=>{updateOrder(items._id,'Pending')}} successBtnHide={items.status === 'Delivered' ? true : false} successBtn={() => {updateOrder(items._id, 'Delivered')}}/>
+										<OrderForm key={items._id} orderId={`${items._id}, User ID: ${items.userId}`} userIdHide={false} userId={items.userId} price={items.total} details={items.orderDetails.map((details) => {return <> <div>Product Name: {details.productName}</div> <div>Quantity: {details.quantity}</div> <div>Price: {details.total}</div> </> })} price={items.amountToPay} date={items.createdOn.replace('T', ' ').replace('Z', ' ')} status={items.status} cancelBtnHide={true} pendingBtnHide={items.status === 'Pending' ? true : false} pendingBtn={()=>{updateOrder(items._id,'Pending')}} successBtnHide={items.status === 'Delivered' ? true : false} successBtn={() => {updateOrder(items._id, 'Delivered')}}/>
 									)
 							})}
 						</Row>

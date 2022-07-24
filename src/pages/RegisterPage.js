@@ -28,7 +28,7 @@ export default function RegisterPage(){
 			});
 		}
 		else{
-			fetch('http://localhost:4000/users/create', {
+			fetch('https://code-eater-e-commerce.herokuapp.com/', {
 				method: "POST",
 				headers: {"Content-Type":"application/json"},
 				body: JSON.stringify({

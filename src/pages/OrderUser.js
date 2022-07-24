@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {Row, Button} from 'react-bootstrap';
+import {Row} from 'react-bootstrap';
 import Swal from 'sweetalert2';
 import {useNavigate} from 'react-router-dom';
 
@@ -19,7 +19,7 @@ export default function CartPage(){
 
 
 	function orderDetails(isShow){
-		fetch('http://localhost:4000/orders/orders-user', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/', {
 				method: "GET",
 				headers: {
 					Authorization: `Bearer ${token}`
@@ -66,7 +66,7 @@ export default function CartPage(){
 	}, [token])
 
 	function cancelOrder(orderid){
-		fetch('http://localhost:4000/orders/cancel-order', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/', {
 			method: "PUT",
 			headers: {
 				Authorization: `Bearer ${token}`,
@@ -94,13 +94,13 @@ export default function CartPage(){
 	return(
 			<>
 				{
-					userlvl == null
+					userlvl === null
 					?
 					<>
 						<Page404 />
 					</>
 					:
-					userlvl == 'false' && emptyOrder
+					userlvl === 'false' && emptyOrder
 					?
 					<>
 						<EmptyForm form='orders'/>

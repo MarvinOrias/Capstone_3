@@ -1,11 +1,9 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {Row, Col, Modal, Button, Form} from 'react-bootstrap';
+import {Row, Modal, Button, Form} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 import ProductsForm from '../components/ProductsForm';
-import Error404 from '../components/Error404';
-import SearchForm from '../components/SearchForm';
 
 export default function ProductsPage(){
 	const [items, setItems] = useState([]);
@@ -26,7 +24,7 @@ export default function ProductsPage(){
 	const [newPrice, setNewPrice] = useState(0);
 
 	const fetchData = () => {
-		fetch('http://localhost:4000/products/all')
+		fetch('https://code-eater-e-commerce.herokuapp.com/')
 		.then((response) => {
 			return response.json()
 		}).then((products)=>{
@@ -49,7 +47,7 @@ export default function ProductsPage(){
 	}
 
 	function addItem(prodId, qty){
-		fetch('http://localhost:4000/users/cart', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/', {
 			method: "PUT",
 			headers: {
 				Authorization: `Bearer ${token}`,
@@ -130,7 +128,7 @@ export default function ProductsPage(){
 				});
 		}
 		else{
-			fetch('http://localhost:4000/products/update',{
+			fetch('https://code-eater-e-commerce.herokuapp.com/',{
 				method: "PUT",
 				headers: {
 					Authorization: `Bearer ${token}`,
@@ -183,7 +181,7 @@ export default function ProductsPage(){
 	}
 
 	function archiveBtn(prodId){
-		fetch('http://localhost:4000/products/archive', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/', {
 			method: "PUT",
 			headers: {
 				Authorization: `Bearer ${token}`,
@@ -227,7 +225,7 @@ export default function ProductsPage(){
 	}
 
 	function activeBtn(prodId){
-		fetch('http://localhost:4000/products/active', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/', {
 			method: "PUT",
 			headers: {
 				Authorization: `Bearer ${token}`,
@@ -284,7 +282,7 @@ export default function ProductsPage(){
 				});
 		}
 		else{
-			fetch('http://localhost:4000/products/create', {
+			fetch('https://code-eater-e-commerce.herokuapp.com/', {
 				method: "POST",
 				headers: {
 					Authorization: `Bearer ${token}`,
@@ -334,7 +332,7 @@ export default function ProductsPage(){
 		}
 	}
 
-	const loadedData = items.map((products, index) => {
+	const loadedData = items.map((products) => {
 		if(token !== null && userlvl === 'true'){
 			return(
 				<>

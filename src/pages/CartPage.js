@@ -19,7 +19,7 @@ export default function CartPage(){
 	const navigate = useNavigate();
 
 	function cartDetails(isShow){
-		fetch('http://localhost:4000/users/cart-details', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/', {
 				method: "GET",
 				headers: {
 					Authorization: `Bearer ${token}`
@@ -70,7 +70,7 @@ export default function CartPage(){
 	}, [])
 
 	function removeItem(cartid){
-		fetch('http://localhost:4000/users/remove-cart-item' ,{
+		fetch('https://code-eater-e-commerce.herokuapp.com/' ,{
 			method: "PUT",
 			headers: {
 				Authorization: `Bearer ${token}`,
@@ -96,7 +96,7 @@ export default function CartPage(){
 	}
 
 	function itemCheckout(){
-		fetch('http://localhost:4000/orders/create-order', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/', {
 			method: "POST",
 			headers: {
 				Authorization: `Bearer ${token}`
@@ -104,7 +104,7 @@ export default function CartPage(){
 		}).then((response) => {
 			return response.json();
 		}).then((createOrder) => {
-			fetch('http://localhost:4000/users/remove-all-item', {
+			fetch('https://code-eater-e-commerce.herokuapp.com/', {
 				method: "PUT",
 				headers: {
 					Authorization: `Bearer ${token}`
@@ -130,13 +130,13 @@ export default function CartPage(){
 	return(
 			<>
 				{
-					userlvl == 'true' || userlvl == null
+					userlvl === 'true' || userlvl === null
 					?
 					<>
 						<Page404 />
 					</>
 					:
-					userlvl == 'false' && emptyCart
+					userlvl === 'false' && emptyCart
 					?
 					<>
 						<EmptyForm form='carts'/>
