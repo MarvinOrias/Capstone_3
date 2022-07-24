@@ -19,7 +19,7 @@ export default function CartPage(){
 
 
 	function orderDetails(isShow){
-		fetch('https://code-eater-e-commerce.herokuapp.com/', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/orders/all', {
 				method: "GET",
 				headers: {
 					Authorization: `Bearer ${token}`
@@ -66,7 +66,7 @@ export default function CartPage(){
 	}, [token])
 
 	function updateOrder(orderid, status){
-		fetch('https://code-eater-e-commerce.herokuapp.com/', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/orders/update-order-admin', {
 			method: "PUT",
 			headers: {
 				Authorization: `Bearer ${token}`,

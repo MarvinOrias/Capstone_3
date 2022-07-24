@@ -24,7 +24,7 @@ export default function ProductsPage(){
 	const [newPrice, setNewPrice] = useState(0);
 
 	const fetchData = () => {
-		fetch('https://code-eater-e-commerce.herokuapp.com/')
+		fetch('https://code-eater-e-commerce.herokuapp.com/products/all')
 		.then((response) => {
 			return response.json()
 		}).then((products)=>{
@@ -47,7 +47,7 @@ export default function ProductsPage(){
 	}
 
 	function addItem(prodId, qty){
-		fetch('https://code-eater-e-commerce.herokuapp.com/', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/users/cart', {
 			method: "PUT",
 			headers: {
 				Authorization: `Bearer ${token}`,
@@ -128,7 +128,7 @@ export default function ProductsPage(){
 				});
 		}
 		else{
-			fetch('https://code-eater-e-commerce.herokuapp.com/',{
+			fetch('https://code-eater-e-commerce.herokuapp.com/products/update',{
 				method: "PUT",
 				headers: {
 					Authorization: `Bearer ${token}`,
@@ -181,7 +181,7 @@ export default function ProductsPage(){
 	}
 
 	function archiveBtn(prodId){
-		fetch('https://code-eater-e-commerce.herokuapp.com/', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/products/archive', {
 			method: "PUT",
 			headers: {
 				Authorization: `Bearer ${token}`,
@@ -225,7 +225,7 @@ export default function ProductsPage(){
 	}
 
 	function activeBtn(prodId){
-		fetch('https://code-eater-e-commerce.herokuapp.com/', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/products/active', {
 			method: "PUT",
 			headers: {
 				Authorization: `Bearer ${token}`,
@@ -282,7 +282,7 @@ export default function ProductsPage(){
 				});
 		}
 		else{
-			fetch('https://code-eater-e-commerce.herokuapp.com/', {
+			fetch('https://code-eater-e-commerce.herokuapp.com/products/create', {
 				method: "POST",
 				headers: {
 					Authorization: `Bearer ${token}`,
