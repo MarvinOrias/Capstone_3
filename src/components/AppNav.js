@@ -65,7 +65,6 @@ function AppNav(){
 							</Navbar.Brand>
 						</>
 					}
-				    {/*<Navbar.Brand as={Link} to="/" style={{color: "#F9AE51", fontSize: "25px"}} className="brand">Marv'S</Navbar.Brand>*/}
 				    <Navbar.Toggle aria-controls="basic-navbar-nav" />
 				    <Navbar.Collapse id="basic-navbar-nav">
 				      <Nav className="ms-auto">

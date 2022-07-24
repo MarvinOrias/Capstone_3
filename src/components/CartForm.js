@@ -24,10 +24,6 @@ export default function CartForm(props){
 						    
 						    <Button variant="outline-danger" onClick={props.remove} hidden={props.removeBtnHide} className="mb-2">Remove item</Button>
 
-						    {/*<Card.Text hidden={props.isEmpty}>
-								      Cart is empty
-						    </Card.Text>*/}
-
 						  	</Card.Body>
 						</Card>	
 			</>

@@ -18,12 +18,6 @@ export default function CartPage(){
 	const shouldLog = useRef(true);
 	const navigate = useNavigate();
 
-	/*function userDetails(){
-		
-	}
-*/
-
-
 	function cartDetails(isShow){
 		fetch('http://localhost:4000/users/cart-details', {
 				method: "GET",

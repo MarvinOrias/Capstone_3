@@ -7,7 +7,7 @@ export default function SearchForm(props){
 	return(
 			<Card id="Card">
 			  <img variant="top" src={ff7} className="image" alt={'1234'}/>
-			  <span hidden={props.idHide}>id: {props.id}{/*<Form.Control type="text" value={props.idValue} onChange={props.id} className="products-id d-inline" />*/} </span>
+			  <span hidden={props.idHide}>id: {props.id} </span>
 			  <Card.Body>
 
 			    <Card.Text>Item name: {props.name}</Card.Text>

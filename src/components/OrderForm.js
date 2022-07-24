@@ -28,11 +28,7 @@ export default function OrderForm(props){
 						    <Button variant="outline-danger" hidden={props.cancelBtnHide} onClick={props.cancelBtn} className="me-3 mb-3">Cancel</Button>
 						    <Button variant="outline-warning" hidden={props.pendingBtnHide} onClick={props.pendingBtn} className="me-3 mb-3">Pending</Button>
 						    <Button variant="outline-success" hidden={props.successBtnHide} onClick={props.successBtn} className="me-3 mb-2\1">Delivered</Button>
-
-						    {/*<Card.Text hidden={props.isEmpty}>
-								      Cart is empty
-						    </Card.Text>*/}
-
+						    
 						  	</Card.Body>
 						</Card>	
 			</>
