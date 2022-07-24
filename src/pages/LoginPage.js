@@ -27,7 +27,7 @@ export default function LoginPage(){
 			})
 		}
 		else{
-			fetch('https://git.heroku.com/code-eater-e-commerce.git', {
+			fetch('https://code-eater-e-commerce.herokuapp.com/users/login', {
 				method: "POST",
 				headers: {"Content-Type":"application/json"},
 				body: JSON.stringify({
@@ -46,7 +46,7 @@ export default function LoginPage(){
 				}
 				else{
 					localStorage.setItem('token', login.Token_Created);
-					fetch('https://git.heroku.com/code-eater-e-commerce.git', {
+					fetch('https://code-eater-e-commerce.herokuapp.com/users/details', {
 						method: "GET",
 						headers: {
 							Authorization: `Bearer ${login.Token_Created}`

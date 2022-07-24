@@ -13,7 +13,7 @@ function AppNav(){
 	const [user, setUser] = useState('');
 
 	function welcomeUser(){
-		fetch('https://git.heroku.com/code-eater-e-commerce.git', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/', {
 			method: "GET",
 			headers: {
 				Authorization: `Bearer ${token}`

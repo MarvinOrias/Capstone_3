@@ -19,7 +19,7 @@ export default function CartPage(){
 	const navigate = useNavigate();
 
 	function cartDetails(isShow){
-		fetch('https://git.heroku.com/code-eater-e-commerce.git', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/', {
 				method: "GET",
 				headers: {
 					Authorization: `Bearer ${token}`
@@ -70,7 +70,7 @@ export default function CartPage(){
 	}, [])
 
 	function removeItem(cartid){
-		fetch('https://git.heroku.com/code-eater-e-commerce.git' ,{
+		fetch('https://code-eater-e-commerce.herokuapp.com/' ,{
 			method: "PUT",
 			headers: {
 				Authorization: `Bearer ${token}`,
@@ -96,7 +96,7 @@ export default function CartPage(){
 	}
 
 	function itemCheckout(){
-		fetch('https://git.heroku.com/code-eater-e-commerce.git', {
+		fetch('https://code-eater-e-commerce.herokuapp.com/', {
 			method: "POST",
 			headers: {
 				Authorization: `Bearer ${token}`
@@ -104,7 +104,7 @@ export default function CartPage(){
 		}).then((response) => {
 			return response.json();
 		}).then((createOrder) => {
-			fetch('https://git.heroku.com/code-eater-e-commerce.git', {
+			fetch('https://code-eater-e-commerce.herokuapp.com/', {
 				method: "PUT",
 				headers: {
 					Authorization: `Bearer ${token}`
