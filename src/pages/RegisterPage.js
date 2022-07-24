@@ -28,7 +28,7 @@ export default function RegisterPage(){
 			});
 		}
 		else{
-			fetch('https://code-eater-e-commerce.herokuapp.com/', {
+			fetch('https://git.heroku.com/code-eater-e-commerce.git', {
 				method: "POST",
 				headers: {"Content-Type":"application/json"},
 				body: JSON.stringify({
