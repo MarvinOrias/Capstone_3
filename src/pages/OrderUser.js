@@ -1,12 +1,11 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {Row, Button} from 'react-bootstrap';
 import Swal from 'sweetalert2';
-import {useNavigate, Navigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 import OrderForm from '../components/OrderForm';
 import EmptyForm from '../components/EmptyForm';
 import Page404 from './Page404';
-import Details from '../components/Details';
 
 export default function CartPage(){
 	const userlvl = localStorage.getItem('admin');
@@ -54,14 +53,6 @@ export default function CartPage(){
 					setEmptyOrder(false)
 					setOrderInfo(orders.result);
 				}
-				console.log(orders.result)
-				/*for(let i=0; i<=orders.result.length-1; i++){
-					console.log(orders.result[i].orderDetails)
-					for(let o=0; o<=orders.result[i].orderDetails.length-1; o++){
-						console.log(orders.result[i].orderDetails[o].productName)
-						setDetails(orders.result[i].orderDetails[o].productName)
-					}
-				}*/
 			}).catch((error) => {
 				return error.message;
 			});	
@@ -119,7 +110,7 @@ export default function CartPage(){
 						<Row>
 							{orderInfo.map((items, index) => {
 								return(
-										<OrderForm key={items._id} orderId={items._id} price={items.total} details={items.orderDetails.map((details) => {return ` Product Name: ${details.productName} -- Quantity: ${details.quantity}pc(s) -- Total: ${details.total} -- `})} userIdHide={true} price={items.amountToPay} date={items.createdOn.replace('T', ' ').replace('Z', ' ')} status={items.status} cancelBtnHide={items.status === 'Canceled' ? true : false} cancelBtn={() => {cancelOrder(items._id)}} pendingBtnHide={true} successBtnHide={true} />
+										<OrderForm key={items._id} orderId={items._id} price={items.total} details={items.orderDetails.map((details) => {return <> <div>Product Name: {details.productName}</div> <div>Quantity: {details.quantity}</div> <div>Price: {details.total}</div> </> })} userIdHide={true} price={items.amountToPay} date={items.createdOn.replace('T', ' ').replace('Z', ' ')} status={items.status} cancelBtnHide={items.status === 'Canceled' || items.status === 'Delivered' ? true : false} cancelBtn={() => {cancelOrder(items._id)}} pendingBtnHide={true} successBtnHide={true} />
 									)
 							})}
 						</Row>

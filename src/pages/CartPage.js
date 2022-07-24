@@ -33,7 +33,10 @@ export default function CartPage(){
 			}).then((response) => {
 				return response.json();
 			}).then((cartDetails) => {
-				if(cartDetails.message === `User cart is empty`){
+				if(token === null){
+					<Navigate to="*" />
+				}
+				else if(cartDetails.message === `User cart is empty`){
 					if(isShow){
 						setEmptyCart(true);
 						Swal.fire({

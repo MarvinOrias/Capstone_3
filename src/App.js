@@ -15,6 +15,7 @@ import ProductsPage from './pages/ProductsPage';
 import RegisterPage from './pages/RegisterPage';
 import CartPage from './pages/CartPage';
 import OrderUser from './pages/OrderUser';
+import OrderAdmin from './pages/OrderAdmin';
 import OrderPage from './pages/OrderPage';
 
 function App() {
@@ -44,7 +45,7 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             {/*<Route path="/cart" element={<CartPage />} />*/}
             <Route path="/cart" element={<CartPage />} />
-            <Route path="/orders" element={<OrderUser />} />
+            <Route path="/orders" element={<OrderPage />} />
             {/*{ 
               userlvl === 'true' || userlvl === null
               ?

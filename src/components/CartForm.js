@@ -19,7 +19,7 @@ export default function CartForm(props){
 						    </Card.Text>
 
 						    <Card.Text>
-								      total: {props.total}
+								      Price: {props.total}
 						    </Card.Text>
 						    
 						    <Button variant="outline-danger" onClick={props.remove} hidden={props.removeBtnHide} className="mb-2">Remove item</Button>
