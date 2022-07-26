@@ -12,8 +12,6 @@ export default function OrderForm(props){
 
 						  	<Card.Text hidden={props.orderIdHide}>Order No: {props.orderId}</Card.Text>
 
-						  	<Card.Text hidden={props.userIdHide}>User Id: {props.userId}</Card.Text>
-
 						    <Card.Text hidden={props.detailsHide}>Product details: [{props.details}]</Card.Text>
 						    <Card.Text hidden={props.priceHide}>
 								      Amount: {props.price}

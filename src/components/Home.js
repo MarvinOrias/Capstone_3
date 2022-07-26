@@ -19,11 +19,11 @@ export default function Home(){
 
 						<Col sm={12} md={12}>
 							<img src={fox} alt="fox" className="ms-3 mb-2 mt-2" />
-							<h3 className="ms-3 d-inline">MGS Game Collections</h3>
+							<h3 className="ms-3 d-inline">Game Collections</h3>
 						</Col>
 
 						<Col sm={12} md={12}>
-							<h2 className="ms-3 mt-2">Collections for everyone, anywhere</h2>
+							<h2 className="ms-3 mt-2">Collectibles for everyone, anywhere</h2>
 						</Col>
 
 						<Col sm={12} md={12}>
