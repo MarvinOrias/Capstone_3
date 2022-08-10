@@ -18,8 +18,7 @@ export default function Home(){
 					<Row>
 
 						<Col sm={12} md={12}>
-							<img src={fox} alt="fox" className="ms-3 mb-2 mt-2" />
-							<h3 className="ms-3 d-inline">Game Collections</h3>
+							<img src={fox} alt="fox" className="mb-2 mt-3 ms-3"/>
 						</Col>
 
 						<Col sm={12} md={12}>
@@ -34,7 +33,7 @@ export default function Home(){
 							<Card className="home-card" style={{backgroundColor: '#3C382D', height: '18rem', border: '5px solid white'}}>
 							  <Card.Body>
 							    <Card.Title style={{fontSize: "30px"}}>Easy</Card.Title>
-							    <Card.Text style={{fontSize: '20px'}}>
+							    <Card.Text style={{fontSizeAdjust: '20px'}}>
 							      We value everyone and build trust around. Everything you browse here is authentic. No need of second thoughts of non-authentic collections.
 							    </Card.Text>
 							  </Card.Body>
@@ -45,7 +44,7 @@ export default function Home(){
 							<Card className="home-card" style={{backgroundColor: '#3C382D', height: '18rem', border: '5px solid white'}}>
 							  <Card.Body>
 							    <Card.Title style={{fontSize: "30px"}}>Fast</Card.Title>
-							    <Card.Text style={{fontSize: '20px'}}>
+							    <Card.Text style={{fontSizeAdjust: '20px'}}>
 							      Planning to find rare collections? Planning to get one the soonest? No need to worry about it! You will receive your items right away!
 							    </Card.Text>
 							  </Card.Body>
@@ -56,7 +55,7 @@ export default function Home(){
 							<Card className="home-card" style={{backgroundColor: '#3C382D', height: '18rem', border: '5px solid white'}}>
 							  <Card.Body>
 							    <Card.Title style={{fontSize: "30px"}}>Growing Community</Card.Title>
-							    <Card.Text style={{fontSize: '20px'}}>
+							    <Card.Text style={{fontSizeAdjust: '20px'}}>
 							    	Let's grow and connect together. Discuss and converse to anyone here: foxdiscussions.com
 							    </Card.Text>
 							  </Card.Body>
