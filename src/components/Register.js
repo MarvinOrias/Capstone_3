@@ -49,7 +49,7 @@ export default function Register(props){
 							</Col>
 				
 							<Col>
-								<Button variant="info" type="submit">
+								<Button variant="success" type="submit">
 								    Register
 								</Button>
 							</Col>	

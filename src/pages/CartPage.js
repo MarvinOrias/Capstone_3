@@ -19,7 +19,7 @@ export default function CartPage(){
 	const navigate = useNavigate();
 
 	function cartDetails(isShow){
-		fetch('https://code-eater-e-commerce.herokuapp.com/users/cart-details', {
+		fetch('https://code-eater-back-end.herokuapp.com/users/cart-details', {
 				method: "GET",
 				headers: {
 					Authorization: `Bearer ${token}`
@@ -70,7 +70,7 @@ export default function CartPage(){
 	}, [])
 
 	function removeItem(cartid){
-		fetch('https://code-eater-e-commerce.herokuapp.com/users/remove-cart-item' ,{
+		fetch('https://code-eater-back-end.herokuapp.com/users/remove-cart-item' ,{
 			method: "PUT",
 			headers: {
 				Authorization: `Bearer ${token}`,
@@ -96,7 +96,7 @@ export default function CartPage(){
 	}
 
 	function itemCheckout(){
-		fetch('https://code-eater-e-commerce.herokuapp.com/orders/create-order', {
+		fetch('https://code-eater-back-end.herokuapp.com/orders/create-order', {
 			method: "POST",
 			headers: {
 				Authorization: `Bearer ${token}`
@@ -104,7 +104,7 @@ export default function CartPage(){
 		}).then((response) => {
 			return response.json();
 		}).then((createOrder) => {
-			fetch('https://code-eater-e-commerce.herokuapp.com/users/remove-all-item', {
+			fetch('https://code-eater-back-end.herokuapp.com/users/remove-all-item', {
 				method: "PUT",
 				headers: {
 					Authorization: `Bearer ${token}`

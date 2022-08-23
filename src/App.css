@@ -10,21 +10,51 @@
 /*body*/
 
 #body{
-  background: #303841;
-  animation: right-to-left 1.5s ease-in;
+  animation: body-anm 3s forwards;
 }
 
-@keyframes right-to-left{
+@keyframes body-anm{
+  0%{
+    background: darkgray;
+  }
+  100%{
+    background: #303841;
+  }
+}
+
+/*Navbar*/
+
+.navbar{
+  animation: nav-anm 3s;
+}
+
+.nav-avatar{
+  height: 5.8vh;
+  width: 3.5vw;
+}
+
+.nav-avatar:hover{
+  animation: nav-avatar-anm 2s forwards;
+}
+
+@keyframes nav-avatar-anm{
+  0%{
+    opacity: 20%;
+  }
+  100%{
+    box-shadow: 2px 2px 10px #41D1B0;
+  }
+}
+
+@keyframes nav-anm{
   0%{
     opacity: 0%;
     transform: translateX(100%);
   }
   100%{
-    opacity: 100%;
+    transform: translateX(0%);
   }
 }
-
-/*Navbar*/
 
 .brand{
   margin-left: 20px;
@@ -45,6 +75,17 @@
 .home{
   margin-top: 20px;
   background: #2E3238;
+  animation: home-anm 3s;
+}
+
+@keyframes home-anm{
+  0%{
+    opacity: 0%;
+    transform: translateY(100%);
+  }
+  100%{
+    transform: translateY(0%);
+  }
 }
 
 .home-card{
@@ -82,6 +123,15 @@
 .login-form{
   margin-top: 20px;
   border: 7px solid gray;
+  animation: login-form-anm 3s;
+}
+
+@keyframes login-form-anm{
+  0%{
+    opacity: 0%;
+  }
+  100%{
+  }
 }
 
 .login-form h2{
@@ -95,6 +145,15 @@
 .register-form{
   margin-top: 20px;
   border: 7px solid gray;
+  animation: register-form-anm 3s;
+}
+
+@keyframes register-form-anm{
+  0%{
+    opacity: 0%;
+  }
+  100%{
+  }
 }
 
 .register-form h2{
@@ -105,6 +164,20 @@
 
 /*Products*/
 
+.products-div{
+  animation: products-div-anm 3s;
+}
+
+@keyframes products-div-anm{
+  0%{
+    opacity: 10%;
+    transform: translateY(100%);
+  }
+  100%{
+    transform: translateY(0%);
+  }
+}
+
 #Card{
   margin-top: 30px;
   background-color: #22262A;
@@ -113,6 +186,35 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;
+}
+
+#Card:hover{
+  animation: card-anm 1.5s forwards;
+}
+
+@keyframes card-anm{
+  0%{
+    transform: scale(1.0);
+    box-shadow: 2px 1px 10px green;
+  }
+  100%{
+    transform: scale(1.1, 1.1);
+    box-shadow: 2px 1px 10px #0DCAF0;
+  }
+}
+
+.products-btn{
+  animation: prod-btn-anm 3s;
+}
+
+@keyframes prod-btn-anm{
+  0%{
+    opacity: 0%;
+    transform: scale(2.0);
+  }
+  100%{
+
+  }
 }
 
 .image{

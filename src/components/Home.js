@@ -30,7 +30,7 @@ export default function Home(){
 						</Col>
 
 						<Col sm={12} md={4}>
-							<Card className="home-card" style={{backgroundColor: '#3C382D', height: '18rem', border: '5px solid white'}}>
+							<Card className="home-card" style={{backgroundColor: '#3C382D', height: '19.5rem', border: '5px solid white'}}>
 							  <Card.Body>
 							    <Card.Title style={{fontSize: "30px"}}>Easy</Card.Title>
 							    <Card.Text style={{fontSizeAdjust: '20px'}}>
@@ -41,7 +41,7 @@ export default function Home(){
 						</Col>
 
 						<Col sm={12} md={4}>
-							<Card className="home-card" style={{backgroundColor: '#3C382D', height: '18rem', border: '5px solid white'}}>
+							<Card className="home-card" style={{backgroundColor: '#3C382D', height: '19.5rem', border: '5px solid white'}}>
 							  <Card.Body>
 							    <Card.Title style={{fontSize: "30px"}}>Fast</Card.Title>
 							    <Card.Text style={{fontSizeAdjust: '20px'}}>
@@ -52,10 +52,10 @@ export default function Home(){
 						</Col>
 
 						<Col sm={12} md={4}>
-							<Card className="home-card" style={{backgroundColor: '#3C382D', height: '18rem', border: '5px solid white'}}>
+							<Card className="home-card" style={{backgroundColor: '#3C382D', height: '19.5rem', border: '5px solid white'}}>
 							  <Card.Body>
 							    <Card.Title style={{fontSize: "30px"}}>Growing Community</Card.Title>
-							    <Card.Text style={{fontSizeAdjust: '20px'}}>
+							    <Card.Text style={{fontSizeAdjust: '100px'}}>
 							    	Let's grow and connect together. Discuss and converse to anyone here: foxdiscussions.com
 							    </Card.Text>
 							  </Card.Body>

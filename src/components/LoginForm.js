@@ -32,7 +32,7 @@ export default function LoginForm(props){
 					  	</Col>
 					  	<Col>
 					  		<div className="login_btn">
-					  			<Button variant="warning" type="submit">
+					  			<Button variant="success" type="submit">
 					  			  Log in
 					  			</Button>
 					  		</div>
