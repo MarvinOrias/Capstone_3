@@ -28,7 +28,6 @@ export default function ProductsPage(){
 		.then((response) => {
 			return response.json()
 		}).then((products)=>{
-			console.log(products)
 			setItems(products.result)
 		}).catch((error)=>{
 			return(error.message);

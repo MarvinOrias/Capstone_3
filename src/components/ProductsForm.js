@@ -5,7 +5,7 @@ import ff7 from '../images/ff7.gif';
 
 export default function ProductsForm(props){
 	return(
-			<Col sm={12} md={3}>
+			<Col sm={12} md={4}>
 				<div className="products-div">
 					<Card id="Card">
 					  <img variant="top" src={ff7} className="image" alt={'1234'}/>
